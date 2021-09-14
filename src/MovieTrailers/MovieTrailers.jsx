@@ -1,30 +1,55 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReactPlayer from "react-player";
-import { searchVideo } from "usetube";
+import { getTrailerUrl } from "../Helpers/utilities";
+import "./MovieTrailers.css";
+import AutomaticSuggestions from "../Components/AutoSuggest";
 
 export default function MovieTrailers() {
-  const [url, setUrl] = useState("");
-  const [title, setTitle] = useState("Insert a title");
+  const [url, setUrl] = useState(null);
+  const [title, setTitle] = useState("");
+  const [modal, setModal] = useState(false);
 
-  //   useEffect(() => {
-  //     getNewUrl(title);
-  //     // const [newUrl] = '';
-  //     // setUrl(newUrl);
-  //   }, [searchBtn]);
+  if (modal) document.body.classList.add("active-modal");
+  else document.body.classList.remove("active-modal");
 
   return (
-    <div>
-      <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      <button onClick={() => getNewUrl(title)}>Search</button>
-      <ReactPlayer url={url}></ReactPlayer>
-    </div>
+    <>
+      <div>
+        <input
+          value={title}
+          type="text"
+          placeholder="Input a title"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <button
+          className="btn-modal"
+          onClick={() => {
+            getTrailerUrl(title).then((data) => {
+              setUrl(data);
+              setModal(true);
+            });
+          }}
+        >
+          Search
+        </button>
+        <AutomaticSuggestions />
+        {modal && (
+          <div className="modal">
+            <div className="overlay" onClick={() => setModal(false)}>
+              <div className="player-wrapper">
+                <ReactPlayer
+                  url={url}
+                  onChange={() => console.log(`Change ${url}`)}
+                  playing={true}
+                />
+                <button className="close-modal" onClick={() => setModal(false)}>
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
-}
-
-async function getNewUrl(title) {
-  //   const request = await searchVideo(`${title} Official Trailer`);
-  //   console.log(request);
-
-  const url = `https://cors-anywhere.herokuapp.com/https://www.youtube.com/results?search_query=${title}+official+trailer`;
-  fetch(url).then((response) => console.log(response.body));
 }
