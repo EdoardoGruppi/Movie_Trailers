@@ -46,6 +46,7 @@ export default function Banner({ moviesFrom }) {
           </h1>
         </div>
       </div>
+      {/* Add fade effect at the bottom of the banner */}
       <div className="banner_fade_bottom"></div>
     </header>
   );

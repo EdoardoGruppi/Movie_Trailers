@@ -3,7 +3,9 @@ import ReactPlayer from "react-player";
 import "./MovieTrailers.css";
 import AutomaticSuggestions from "../Components/AutoSuggest";
 import Row from "../Components/Row";
+import NavBar from "../Components/NavBar";
 import Banner from "../Components/Banner";
+
 import { requests } from "../Helpers/Requests";
 
 export default function MovieTrailers() {
@@ -17,6 +19,7 @@ export default function MovieTrailers() {
   return (
     <>
       <div>
+        <NavBar />
         <Banner moviesFrom={requests.upcoming} />
 
         <Row title="Netflix Originals" fetchUrl={requests.netflixOriginals} />
@@ -32,7 +35,6 @@ export default function MovieTrailers() {
         <Row title="Drama Movies" fetchUrl={requests.dramaMovies} />
         <Row title="War Movies" fetchUrl={requests.warMovies} />
 
-        <AutomaticSuggestions setUrl={setUrl} setModal={setModal} />
         {modal && (
           <div className="modal">
             <div className="overlay" onClick={() => setModal(false)}>
