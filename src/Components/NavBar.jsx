@@ -9,7 +9,7 @@ export default function NavBar() {
   useEffect(() => {
     // Handle the bar background-color effect when scrolling over 100px
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 120) setShow(true);
+      if (window.scrollY > 150) setShow(true);
       else setShow(false);
     });
     // Every time useEffect gets fired out for some reason remove the listener
@@ -27,8 +27,7 @@ export default function NavBar() {
         }
         className="logo"
       />
-
-      <AutomaticSuggestions className="search_bar" />
+      {show && <AutomaticSuggestions className="search_bar" />}
     </div>
   );
 }
