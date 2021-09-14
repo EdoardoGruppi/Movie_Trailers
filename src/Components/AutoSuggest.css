@@ -3,7 +3,7 @@
 }
 
 .react-autosuggest__input {
-  width: 16vw;
+  width: 50vw;
   height: 4vh;
   font-family: Helvetica, sans-serif;
   font-weight: 300;
@@ -21,15 +21,11 @@
   border-bottom-right-radius: 0;
 }
 
-/* .react-autosuggest__suggestions-container {
-  display: none;
-} */
-
 .react-autosuggest__suggestions-container--open {
   display: block;
+  width: 50vw;
   position: absolute;
   text-align: left;
-  width: 16vw;
   border: 1px solid #aaa;
   background-color: #fff;
   font-family: Helvetica, sans-serif;
