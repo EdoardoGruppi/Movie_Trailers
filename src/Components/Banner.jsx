@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
 import "./Banner.css";
+import closeLogo from "../close.png";
 import { baseImagesUrl } from "../Config";
+import { getTrailerUrl } from "../Helpers/Utilities";
 
 export default function Banner({ moviesFrom }) {
   const [movie, setMovie] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState("");
 
   useEffect(() => {
     fetch(moviesFrom)
@@ -21,6 +25,12 @@ export default function Banner({ moviesFrom }) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
+  const handleClick = (movie) => {
+    getTrailerUrl(movie)
+      .then((url) => setTrailerUrl(url))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <header
       className="banner"
@@ -37,7 +47,9 @@ export default function Banner({ moviesFrom }) {
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
         <div className="banner_buttons">
-          <button className="banner_button">Play</button>
+          <button className="banner_button" onClick={() => handleClick(movie)}>
+            Play
+          </button>
           <button className="banner_button">More Info</button>
         </div>
         <div className="description">
@@ -48,6 +60,23 @@ export default function Banner({ moviesFrom }) {
       </div>
       {/* Add fade effect at the bottom of the banner */}
       <div className="banner_fade_bottom"></div>
+      {trailerUrl && (
+        <div className="modal">
+          <div className="overlay" onClick={() => setTrailerUrl("")}>
+            <div className="player-wrapper">
+              <ReactPlayer url={trailerUrl} playing={true} />
+              <img
+                src={closeLogo}
+                alt={
+                  "https://fontmeme.com/permalink/210914/f2752e7a5b43ecc7c518f9609c9587dd.png"
+                }
+                className="close-button"
+                onClick={() => setTrailerUrl("")}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
