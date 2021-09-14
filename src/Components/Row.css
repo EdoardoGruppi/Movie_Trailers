@@ -1,0 +1,27 @@
+.row_posters {
+  /* Put the posters side by side */
+  display: flex;
+  /* Allow scrolling the single row */
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+/* This tell browsers to not show scrollbar */
+.row_posters::-webkit-scrollbar {
+  display: none;
+}
+
+.poster {
+  /* -ms-content-zoom-snap-points: ; keeps the aspect ratio */
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 400ms;
+}
+
+.poster:hover {
+  /* Animation to highlight the element where the mouse is on */
+  transform: scale(1.08);
+}
