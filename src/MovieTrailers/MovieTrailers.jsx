@@ -2,6 +2,9 @@ import { useState } from "react";
 import ReactPlayer from "react-player";
 import "./MovieTrailers.css";
 import AutomaticSuggestions from "../Components/AutoSuggest";
+import Row from "../Components/Row";
+import Banner from "../Components/Banner";
+import { requests } from "../Helpers/Requests";
 
 export default function MovieTrailers() {
   const [url, setUrl] = useState(null);
@@ -14,6 +17,21 @@ export default function MovieTrailers() {
   return (
     <>
       <div>
+        <Banner moviesFrom={requests.upcoming} />
+
+        <Row title="Netflix Originals" fetchUrl={requests.netflixOriginals} />
+        <Row title="Trending Now" fetchUrl={requests.trending} />
+        <Row title="Top Rated" fetchUrl={requests.topRated} />
+        <Row title="Action Movies" fetchUrl={requests.actionMovies} />
+        <Row title="Adventure Movies" fetchUrl={requests.adventureMovies} />
+        <Row title="Animation Movies" fetchUrl={requests.animationMovies} />
+        <Row title="Horror Movies" fetchUrl={requests.horrorMovies} />
+        <Row title="Thriller Movies" fetchUrl={requests.thrillerMovies} />
+        <Row title="Comedy Movies" fetchUrl={requests.comedyMovies} />
+        <Row title="Documentaries" fetchUrl={requests.documentaries} />
+        <Row title="Drama Movies" fetchUrl={requests.dramaMovies} />
+        <Row title="War Movies" fetchUrl={requests.warMovies} />
+
         <AutomaticSuggestions setUrl={setUrl} setModal={setModal} />
         {modal && (
           <div className="modal">
