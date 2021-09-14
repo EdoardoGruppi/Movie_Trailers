@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Autosuggest from "react-autosuggest";
-import { getFilmsSuggested, getTrailerUrl } from "../Helpers/utilities";
+import { getFilmsSuggested, getTrailerUrl } from "../Helpers/Utilities";
 import "./AutoSuggest.css";
 
 export default function AutomaticSuggestions(params) {
@@ -8,7 +8,7 @@ export default function AutomaticSuggestions(params) {
   const [filmsSuggested, setFilmsSuggested] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
-  // Every time a character is inputted update the suggested films
+  // // Every time a character is inputted update the suggested films
   const onSuggestionsFetchRequested = ({ value }) => {
     getFilmsSuggested(value).then(([films, titles]) => {
       setFilmsSuggested(films);
