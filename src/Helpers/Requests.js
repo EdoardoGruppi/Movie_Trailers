@@ -4,6 +4,7 @@ import { baseUrl, apiKey } from "../Config";
 // https://gist.github.com/courville/548469b86ae9294f9e98cbb52273a1db
 
 export const requests = {
+  upcoming: `${baseUrl}/movie/upcoming?${apiKey}&language=en-US`,
   trending: `${baseUrl}/trending/all/week?${apiKey}&language=en-US`,
   netflixOriginals: `${baseUrl}/discover/tv?${apiKey}&language=en-US&with_networks=213`,
   topRated: `${baseUrl}/movie/top_rated?${apiKey}&language=en-US`,
@@ -15,7 +16,7 @@ export const requests = {
   documentaries: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=99`,
   dramaMovies: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=18`,
   familyMovies: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=10751`,
-  fanatsyMovies: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=14`,
+  fantasyMovies: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=14`,
   historyMovies: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=36`,
   horrorMovies: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=27`,
   musicMovies: `${baseUrl}/discover/movie?${apiKey}&language=en-US&with_genres=10402`,
