@@ -8,7 +8,7 @@ export default function AutomaticSuggestions(params) {
   const [filmsSuggested, setFilmsSuggested] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
-  // // Every time a character is inputted update the suggested films
+  // Every time a character is inputted update the suggested films
   const onSuggestionsFetchRequested = ({ value }) => {
     getFilmsSuggested(value).then(([films, titles]) => {
       setFilmsSuggested(films);
