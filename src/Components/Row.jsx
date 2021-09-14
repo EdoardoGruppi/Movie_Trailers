@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
+import "./VideoPlayer.css";
 import { baseImagesUrl } from "../Config";
 import ReactPlayer from "react-player";
 import { getTrailerUrl } from "../Helpers/Utilities";
