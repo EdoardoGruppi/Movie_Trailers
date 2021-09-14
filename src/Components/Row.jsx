@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
-
-// Base url to get the images
-const baseImagesUrl = "https://image.tmdb.org/t/p/original/";
+import { baseImagesUrl } from "../Config";
 
 export default function Row({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
@@ -17,7 +15,7 @@ export default function Row({ title, fetchUrl }) {
 
   return (
     <div className="row">
-      <h2>{title}</h2>
+      <h2 className="title">{title}</h2>
       <div className="row_posters">
         {movies.map((movie) => (
           <img
