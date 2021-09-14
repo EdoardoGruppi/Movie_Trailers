@@ -1,0 +1,24 @@
+.nav {
+  /* Even scrolling the nav remains */
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 18px;
+  z-index: 1;
+
+  /* Add animation */
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.logo {
+  width: 200px;
+  /* Adjust the height respecting the aspect ratio */
+  object-fit: contain;
+}
+
+.nav_black {
+  background-color: #112;
+}
