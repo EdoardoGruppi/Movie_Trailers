@@ -4,7 +4,7 @@ import MovieTrailers from "./MovieTrailers/MovieTrailers";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <MovieTrailers></MovieTrailers>
     </div>
   );
