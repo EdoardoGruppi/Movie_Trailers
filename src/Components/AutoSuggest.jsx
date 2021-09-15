@@ -1,17 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Autosuggest from "react-autosuggest";
-import { getFilmsSuggested, getTrailerUrl } from "../Helpers/Utilities";
+import { getFilmsSuggested } from "../Helpers/Utilities";
 import "./AutoSuggest.css";
+import { requests } from "../Helpers/Requests";
+import { getSearchResults } from "../Helpers/Utilities";
 
-export default function AutomaticSuggestions(params) {
+export default function AutomaticSuggestions({ setMovies }) {
   const [value, setValue] = useState("");
-  const [filmsSuggested, setFilmsSuggested] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
+
+  useEffect(() => {
+    fetch(requests.trending)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.results));
+    window.addEventListener("keydown", handleKeyDown);
+    // Every time useEffect gets fired out for some reason remove the listener
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const handleKeyDown = (e) => {
+    const input = e.target.defaultValue;
+    if (e.key === "Enter" && input.length !== 0)
+      getSearchResults(input).then((result) => setMovies(result));
+  };
 
   // Every time a character is inputted update the suggested films
   const onSuggestionsFetchRequested = ({ value }) => {
-    getFilmsSuggested(value).then(([films, titles]) => {
-      setFilmsSuggested(films);
+    getFilmsSuggested(value).then(([_, titles]) => {
       setSuggestions(titles);
     });
   };
@@ -21,26 +38,16 @@ export default function AutomaticSuggestions(params) {
     setValue(newValue);
   };
 
-  const getSuggestionValue = (title) => {
-    // When a suggestion is clicked update the input string and the parent states (url, modal)
-    const film = filmsSuggested.find((item) => item.title === title);
-    getTrailerUrl(film).then((data) => {
-      params.setUrl(data);
-      params.setModal(true);
-    });
-    return title;
-  };
-
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={() => setSuggestions([])}
-        getSuggestionValue={getSuggestionValue}
+        getSuggestionValue={(title) => title}
         renderSuggestion={(suggestion) => <div>{suggestion}</div>}
         inputProps={{
-          placeholder: "Insert a title",
+          placeholder: "Insert a keyword and press Enter",
           value,
           onChange: handleChanges,
         }}
