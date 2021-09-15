@@ -1,0 +1,32 @@
+.matrix-posters {
+  /* Put the posters side by side */
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow scrolling the single row */
+  /* overflow-y: hidden;
+  overflow-x: scroll; */
+  padding: 20px;
+}
+
+.matrix-posters > * {
+  flex: 0 1 80px;
+}
+
+/* This tell browsers to not show scrollbar */
+.matrix-posters::-webkit-scrollbar {
+  display: none;
+}
+
+.matrix-poster {
+  /* -ms-content-zoom-snap-points: ; keeps the aspect ratio */
+  object-fit: contain;
+  width: 100%;
+  max-height: 250px;
+  margin: 5px;
+  transition: transform 400ms;
+}
+
+.matrix-poster:hover {
+  /* Animation to highlight the element where the mouse is on */
+  transform: scale(1.09);
+}
