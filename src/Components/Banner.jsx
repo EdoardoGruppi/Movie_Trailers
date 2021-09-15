@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import "./Banner.css";
-import closeLogo from "../close.png";
-import { baseImagesUrl } from "../Config";
+import closeLogo from "../Images/close.png";
+import { baseImagesUrl } from "../Helpers/Config";
 import { getTrailerUrl } from "../Helpers/Utilities";
 
 export default function Banner({ moviesFrom }) {
