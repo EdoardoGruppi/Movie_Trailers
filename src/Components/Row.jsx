@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
 import "./VideoPlayer.css";
-import { baseImagesUrl } from "../Config";
+import { baseImagesUrl } from "../Helpers/Config";
 import ReactPlayer from "react-player";
 import { getTrailerUrl } from "../Helpers/Utilities";
-import closeLogo from "../close.png";
+import closeLogo from "../Images/close.png";
 
 export default function Row({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
