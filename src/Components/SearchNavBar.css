@@ -1,0 +1,44 @@
+.header {
+  top: 0px;
+  height: 400px;
+  width: 100%;
+  background-color: red;
+}
+
+.search-nav {
+  /* Even scrolling the nav remains */
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 18px;
+  z-index: 1;
+  background-color: #112;
+
+  /* Add animation */
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.search-nav-logo {
+  width: 195px;
+  margin-right: 35px;
+  /* Adjust the height respecting the aspect ratio */
+  object-fit: contain;
+}
+
+.back-button {
+  width: 26px;
+  object-fit: contain;
+  margin-left: 5px;
+  margin-top: -5px;
+  background-color: white;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-image: url("../Images/backArrow.svg");
+}
