@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 .vscode/
-src/Config.js
+src/Helpers/Config.js
 
 # testing
 /coverage

@@ -1,4 +1,4 @@
-import { baseUrl, apiKey } from "../Config";
+import { baseUrl, apiKey } from "./Config";
 
 // For the genre codes the following link ihas been used:
 // https://gist.github.com/courville/548469b86ae9294f9e98cbb52273a1db
