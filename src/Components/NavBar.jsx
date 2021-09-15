@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./NavBar.css";
-import logo from "../logo.png";
-import AutomaticSuggestions from "./AutoSuggest";
+import logo from "../Images/logo.png";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
     // Handle the bar background-color effect when scrolling over 100px
-    window.addEventListener("scroll", () => {
+    const listener = window.addEventListener("scroll", () => {
       if (window.scrollY > 150) setShow(true);
       else setShow(false);
     });
     // Every time useEffect gets fired out for some reason remove the listener
     return () => {
-      window.removeEventListener("scroll");
+      window.removeEventListener("scroll", listener);
     };
   }, []);
 
@@ -27,7 +27,7 @@ export default function NavBar() {
         }
         className="logo"
       />
-      {show && <AutomaticSuggestions className="search_bar" />}
+      <Link to="/search" className="search-button"></Link>
     </div>
   );
 }
