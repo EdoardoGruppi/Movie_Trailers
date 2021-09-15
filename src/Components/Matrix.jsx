@@ -25,7 +25,7 @@ export default function Matrix({ movies }) {
             onClick={() => handleClick(movie)}
             className="matrix-poster"
             src={`${baseImagesUrl}${movie.poster_path}`}
-            alt={movie.name}
+            alt={movie.title}
           />
         ))}
       </div>
