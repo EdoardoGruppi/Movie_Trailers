@@ -148,7 +148,7 @@ export default function InfoWindow({ info, setInfo, movieVisualized }) {
                       rel="noopener noreferrer"
                     >
                       <img
-                        style={{ "margin-left": "5px" }}
+                        style={{ marginLeft: "5px" }}
                         src={filmLogo}
                         alt="Youtube"
                         className="info-link-icon"
