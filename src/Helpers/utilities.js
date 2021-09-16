@@ -6,30 +6,32 @@ export function truncate(str, n) {
 }
 
 export async function getTrailerUrl(film) {
+  const type = findType(film);
   // Get the youtube link to the trailer of the film
-  let videos = await getVideoKey(film.id);
+  let videos = await getVideoKey(film.id, type);
   videos = videos.filter(
     (item) =>
       item.name.toLowerCase().includes("trailer") ||
       item.name.toLowerCase().includes("teaser")
   );
-  const youTubeKey = videos[0].key;
-  return `https://www.youtube.com/watch?v=${youTubeKey}`;
+  const result =
+    videos.length > 0 ? `https://www.youtube.com/watch?v=${videos[0].key}` : "";
+  return result;
 }
 
-async function searchMovie(title, page = 1) {
+async function searchMovie(title, page = 1, type = "movie") {
   // Get the URI equivalent of the inputted string
   const input = title.replace(" ", "%20");
   // Perform the search of the movie through a specific url
-  const url = `${baseUrl}/search/movie?${apiKey}&language=en-US&page=${page}&query=${input}`;
+  const url = `${baseUrl}/search/${type}?${apiKey}&language=en-US&page=${page}&query=${input}`;
   return fetch(url)
     .then((res) => res.json())
     .then((data) => data.results.filter((item) => item.poster_path));
 }
 
-async function getVideoKey(movieID) {
+async function getVideoKey(movieID, type = "movie") {
   // Get the youtube video keys related to a film
-  const url = `${baseUrl}/movie/${movieID}/videos?${apiKey}&language=en-US`;
+  const url = `${baseUrl}/${type}/${movieID}/videos?${apiKey}&language=en-US`;
   return fetch(url)
     .then((res) => res.json())
     .then((data) => data.results);
@@ -56,9 +58,14 @@ export async function getSearchResults(input) {
   return results;
 }
 
-export async function getMovieDetails(id) {
-  const url = `${baseUrl}/movie/${id}?${apiKey}&language=en-US`;
+export async function getMovieDetails(movie) {
+  const type = findType(movie);
+  const url = `${baseUrl}/${type}/${movie.id}?${apiKey}&language=en-US`;
   return fetch(url).then((res) => res.json());
+}
+
+export function findType(item) {
+  return "title" in item ? "movie" : "tv";
 }
 
 // export async function createNewPoster(title) {
