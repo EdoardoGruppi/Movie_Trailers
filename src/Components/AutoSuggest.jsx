@@ -3,7 +3,7 @@ import Autosuggest from "react-autosuggest";
 import { getFilmsSuggested } from "../Helpers/Utilities";
 import "./AutoSuggest.css";
 import { requests } from "../Helpers/Requests";
-import { getSearchResults } from "../Helpers/Utilities";
+import { searchOverallResults } from "../Helpers/SearchUtilities";
 
 export default function AutomaticSuggestions({ setMovies }) {
   const [value, setValue] = useState("");
@@ -23,12 +23,12 @@ export default function AutomaticSuggestions({ setMovies }) {
   const handleKeyDown = (e) => {
     const input = e.target.defaultValue;
     if (e.key === "Enter" && input.length !== 0)
-      getSearchResults(input).then((result) => setMovies(result));
+      searchOverallResults(input).then((result) => setMovies(result));
   };
 
   // Every time a character is inputted update the suggested films
   const onSuggestionsFetchRequested = ({ value }) => {
-    getFilmsSuggested(value).then(([_, titles]) => {
+    getFilmsSuggested(value).then((titles) => {
       setSuggestions(titles);
     });
   };
