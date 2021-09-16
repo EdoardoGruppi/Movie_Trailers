@@ -3,11 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-require("dotenv").config();
-
-// if (process.env.NODE_ENV === "production") {
-//   console.log = function () {};
-// }
 
 ReactDOM.render(
   <React.StrictMode>
