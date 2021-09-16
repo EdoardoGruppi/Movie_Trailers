@@ -61,6 +61,8 @@ async function searchMovieByPerson(person, type = "movie", page = 1) {
 }
 
 function getUniqueObjects(firstList, secondList) {
+  // Remove the movies or tv series without a poster
+  secondList = secondList.filter((item) => item.poster_path !== null);
   firstList.push(...secondList);
   return [...new Map(firstList.map((item) => [item.id, item])).values()];
 }
