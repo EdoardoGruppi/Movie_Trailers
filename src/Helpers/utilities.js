@@ -1,5 +1,5 @@
 import { apiKey, baseUrl } from "./Config";
-import { searchMovie, searchOverallResults } from "./SearchUtilities";
+import { searchOverallResults } from "./SearchUtilities";
 
 // Truncate the text adding three dots if it is too long
 export function truncate(str, n) {
