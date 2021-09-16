@@ -5,9 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 require("dotenv").config();
 
-if (process.env.NODE_ENV === "production") {
-  console.log = function () {};
-}
+// if (process.env.NODE_ENV === "production") {
+//   console.log = function () {};
+// }
 
 ReactDOM.render(
   <React.StrictMode>
