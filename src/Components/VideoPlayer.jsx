@@ -12,7 +12,7 @@ export default function VideoPlayer({
   movieVisualized,
 }) {
   const handleInfoClick = () => {
-    getMovieDetails(movieVisualized.id).then((data) => {
+    getMovieDetails(movieVisualized).then((data) => {
       setTrailerUrl("");
       setInfo(data);
     });
