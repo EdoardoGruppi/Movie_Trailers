@@ -1,9 +1,19 @@
 import { apiKey, baseUrl } from "./Config";
 
+// Truncate the text adding three dots if it is too long
+export function truncate(str, n) {
+  return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+}
+
 export async function getTrailerUrl(film) {
   // Get the youtube link to the trailer of the film
-  const videoDetails = await getVideoKey(film.id);
-  const youTubeKey = videoDetails.results[0].key;
+  let videos = await getVideoKey(film.id);
+  videos = videos.filter(
+    (item) =>
+      item.name.toLowerCase().includes("trailer") ||
+      item.name.toLowerCase().includes("teaser")
+  );
+  const youTubeKey = videos[0].key;
   return `https://www.youtube.com/watch?v=${youTubeKey}`;
 }
 
@@ -20,7 +30,9 @@ async function searchMovie(title, page = 1) {
 async function getVideoKey(movieID) {
   // Get the youtube video keys related to a film
   const url = `${baseUrl}/movie/${movieID}/videos?${apiKey}&language=en-US`;
-  return fetch(url).then((res) => res.json());
+  return fetch(url)
+    .then((res) => res.json())
+    .then((data) => data.results);
 }
 
 export async function getFilmsSuggested(input, n_suggestions = 5) {
@@ -42,6 +54,11 @@ export async function getSearchResults(input) {
     if (additionalResults.length > 0) results.push(...additionalResults);
   }
   return results;
+}
+
+export async function getMovieDetails(id) {
+  const url = `${baseUrl}/movie/${id}?${apiKey}&language=en-US`;
+  return fetch(url).then((res) => res.json());
 }
 
 // export async function createNewPoster(title) {
