@@ -1,6 +1,6 @@
 {
   "homepage": "https://EdoardoGruppi.github.io/Movie_Trailers",
-  "name": "my-app",
+  "name": "movie_trailers",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
