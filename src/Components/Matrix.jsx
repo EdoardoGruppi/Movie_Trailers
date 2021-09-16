@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "./Matrix.css";
-import "./Row.css";
 import { getTrailerUrl } from "../Helpers/Utilities";
 import { baseImagesUrl } from "../Helpers/Config";
-import closeLogo from "../Images/close.png";
-import ReactPlayer from "react-player";
+import VideoPlayer from "./VideoPlayer";
+import InfoWindow from "./InfoWindow";
 
 export default function Matrix({ movies }) {
   const [trailerUrl, setTrailerUrl] = useState("");
+  const [info, setInfo] = useState(null);
+  const [movieVisualized, setMovievisualized] = useState(null);
 
   const handleClick = (movie) => {
-    getTrailerUrl(movie)
-      .then((url) => setTrailerUrl(url))
-      .catch((error) => console.log(error));
+    setMovievisualized(movie);
+    getTrailerUrl(movie).then((url) => setTrailerUrl(url));
   };
 
   return (
@@ -30,21 +30,19 @@ export default function Matrix({ movies }) {
         ))}
       </div>
       {trailerUrl && (
-        <div className="modal">
-          <div className="overlay" onClick={() => setTrailerUrl("")}>
-            <div className="player-wrapper">
-              <ReactPlayer url={trailerUrl} playing={true} />
-              <img
-                src={closeLogo}
-                alt={
-                  "https://fontmeme.com/permalink/210914/f2752e7a5b43ecc7c518f9609c9587dd.png"
-                }
-                className="close-button"
-                onClick={() => setTrailerUrl("")}
-              />
-            </div>
-          </div>
-        </div>
+        <VideoPlayer
+          trailerUrl={trailerUrl}
+          setTrailerUrl={setTrailerUrl}
+          setInfo={setInfo}
+          movieVisualized={movieVisualized}
+        />
+      )}
+      {info && (
+        <InfoWindow
+          info={info}
+          setInfo={setInfo}
+          movieVisualized={movieVisualized}
+        />
       )}
     </div>
   );

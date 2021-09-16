@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
-import "./VideoPlayer.css";
 import { baseImagesUrl } from "../Helpers/Config";
-import ReactPlayer from "react-player";
 import { getTrailerUrl } from "../Helpers/Utilities";
-import closeLogo from "../Images/close.png";
+import VideoPlayer from "./VideoPlayer";
+import InfoWindow from "./InfoWindow";
 
 export default function Row({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
+  const [info, setInfo] = useState(null);
+  const [movieVisualized, setMovievisualized] = useState(null);
 
   useEffect(() => {
     // With [], the function executes only once when the row loads. It does not run again.
@@ -19,9 +20,8 @@ export default function Row({ title, fetchUrl }) {
   }, [fetchUrl]);
 
   const handleClick = (movie) => {
-    getTrailerUrl(movie)
-      .then((url) => setTrailerUrl(url))
-      .catch((error) => console.log(error));
+    setMovievisualized(movie);
+    getTrailerUrl(movie).then((url) => setTrailerUrl(url));
   };
 
   return (
@@ -40,21 +40,19 @@ export default function Row({ title, fetchUrl }) {
         ))}
       </div>
       {trailerUrl && (
-        <div className="modal">
-          <div className="overlay" onClick={() => setTrailerUrl("")}>
-            <div className="player-wrapper">
-              <ReactPlayer url={trailerUrl} playing={true} />
-              <img
-                src={closeLogo}
-                alt={
-                  "https://fontmeme.com/permalink/210914/f2752e7a5b43ecc7c518f9609c9587dd.png"
-                }
-                className="close-button"
-                onClick={() => setTrailerUrl("")}
-              />
-            </div>
-          </div>
-        </div>
+        <VideoPlayer
+          trailerUrl={trailerUrl}
+          setTrailerUrl={setTrailerUrl}
+          setInfo={setInfo}
+          movieVisualized={movieVisualized}
+        />
+      )}
+      {info && (
+        <InfoWindow
+          info={info}
+          setInfo={setInfo}
+          movieVisualized={movieVisualized}
+        />
       )}
     </div>
   );
