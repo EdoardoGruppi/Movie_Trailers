@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
 import { baseImagesUrl } from "../Helpers/Config";
-import { getTrailerUrl } from "../Helpers/Utilities";
+import { getTrailerUrl, getMovieDetails } from "../Helpers/Utilities";
 import VideoPlayer from "./VideoPlayer";
 import InfoWindow from "./InfoWindow";
 
@@ -21,7 +21,11 @@ export default function Row({ title, fetchUrl }) {
 
   const handleClick = (movie) => {
     setMovievisualized(movie);
-    getTrailerUrl(movie).then((url) => setTrailerUrl(url));
+    getTrailerUrl(movie).then((url) => {
+      url
+        ? setTrailerUrl(url)
+        : getMovieDetails(movie).then((data) => setInfo(data));
+    });
   };
 
   return (

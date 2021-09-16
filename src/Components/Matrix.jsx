@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Matrix.css";
-import { getTrailerUrl } from "../Helpers/Utilities";
+import { getTrailerUrl, getMovieDetails } from "../Helpers/Utilities";
 import { baseImagesUrl } from "../Helpers/Config";
 import VideoPlayer from "./VideoPlayer";
 import InfoWindow from "./InfoWindow";
@@ -12,7 +12,11 @@ export default function Matrix({ movies }) {
 
   const handleClick = (movie) => {
     setMovievisualized(movie);
-    getTrailerUrl(movie).then((url) => setTrailerUrl(url));
+    getTrailerUrl(movie).then((url) => {
+      url
+        ? setTrailerUrl(url)
+        : getMovieDetails(movie).then((data) => setInfo(data));
+    });
   };
 
   return (

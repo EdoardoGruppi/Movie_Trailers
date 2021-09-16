@@ -25,12 +25,16 @@ export default function Banner({ moviesFrom }) {
 
   const handleClick = (movie) => {
     setMovievisualized(movie);
-    getTrailerUrl(movie).then((url) => setTrailerUrl(url));
+    getTrailerUrl(movie).then((url) => {
+      url
+        ? setTrailerUrl(url)
+        : getMovieDetails(movie).then((data) => setInfo(data));
+    });
   };
 
   const handleInfoClick = (movie) => {
     setMovievisualized(movie);
-    getMovieDetails(movie.id).then((data) => {
+    getMovieDetails(movie).then((data) => {
       setTrailerUrl("");
       setInfo(data);
     });
