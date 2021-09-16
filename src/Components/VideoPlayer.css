@@ -52,3 +52,13 @@ body.active-modal {
   width: 40px;
   object-fit: contain;
 }
+
+.info-button {
+  position: absolute;
+  top: 7px;
+  /* right: 50px; */
+  left: 7px;
+  background-color: transparent;
+  width: 30.5px;
+  object-fit: contain;
+}
