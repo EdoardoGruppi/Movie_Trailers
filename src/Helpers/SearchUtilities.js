@@ -93,7 +93,7 @@ async function searchTypeResults(input, type, limit, bias = 0) {
   return searchResults;
 }
 
-export async function searchOverallResults(input, limit = 40) {
+export async function searchOverallResults(input, limit = 50) {
   const movieResults = await searchTypeResults(input, "movie", limit);
   const bias = movieResults.length;
   if (bias < limit) {

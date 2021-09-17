@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import closeLogo from "../Images/close.png";
 import youTubeLogo from "../Images/youtube.svg";
 import filmLogo from "../Images/film.svg";
-import { baseImagesUrl } from "../Helpers/Config";
+import { baseImagesUrlw300 } from "../Helpers/Config";
 import { truncate, findType } from "../Helpers/Utilities";
 import "./InfoWindow.css";
 import "./VideoPlayer.css";
@@ -26,7 +26,7 @@ export default function InfoWindow({ info, setInfo, movieVisualized }) {
               </h4>
             </div>
             <img
-              src={`${baseImagesUrl}${movieVisualized.poster_path}`}
+              src={`${baseImagesUrlw300}${movieVisualized.poster_path}`}
               alt="Movie poster"
               className="box b"
             />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Matrix.css";
 import { getTrailerUrl, getMovieDetails } from "../Helpers/Utilities";
-import { baseImagesUrl } from "../Helpers/Config";
+import { baseImagesUrlw200 } from "../Helpers/Config";
 import VideoPlayer from "./VideoPlayer";
 import InfoWindow from "./InfoWindow";
 
@@ -28,7 +28,7 @@ export default function Matrix({ movies }) {
             key={movie.id}
             onClick={() => handleClick(movie)}
             className="matrix-poster"
-            src={`${baseImagesUrl}${movie.poster_path}`}
+            src={`${baseImagesUrlw200}${movie.poster_path}`}
             alt={movie.title}
           />
         ))}

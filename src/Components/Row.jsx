@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Row.css";
-import { baseImagesUrl } from "../Helpers/Config";
+import { baseImagesUrlw200 } from "../Helpers/Config";
 import { getTrailerUrl, getMovieDetails } from "../Helpers/Utilities";
 import VideoPlayer from "./VideoPlayer";
 import InfoWindow from "./InfoWindow";
@@ -38,7 +38,7 @@ export default function Row({ title, fetchUrl }) {
             key={movie.id}
             onClick={() => handleClick(movie)}
             className="poster"
-            src={`${baseImagesUrl}${movie.poster_path}`}
+            src={`${baseImagesUrlw200}${movie.poster_path}`}
             alt={movie.name}
           />
         ))}
