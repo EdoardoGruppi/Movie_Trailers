@@ -23,6 +23,17 @@ export default function MovieTrailers() {
         <Row title="Documentaries" fetchUrl={requests.documentaries} />
         <Row title="Drama Movies" fetchUrl={requests.dramaMovies} />
         <Row title="War Movies" fetchUrl={requests.warMovies} />
+        <Row title="Crime Movies" fetchUrl={requests.crimeMovies} />
+        <Row title="Family Movies" fetchUrl={requests.familyMovies} />
+        <Row title="Fantasy Movies" fetchUrl={requests.fantasyMovies} />
+        <Row title="History Movies" fetchUrl={requests.historyMovies} />
+        <Row title="Music Movies" fetchUrl={requests.musicMovies} />
+        <Row title="Mistery Movies" fetchUrl={requests.misteryMovies} />
+        <Row title="Romance Movies" fetchUrl={requests.romanceMovies} />
+        <Row title="SciFi Movies" fetchUrl={requests.scifiMovies} />
+        <Row title="Tv Movies" fetchUrl={requests.tvMovies} />
+        <Row title="Western Movies" fetchUrl={requests.westernMovies} />
+        <Row title="Upcoming" fetchUrl={requests.upcoming} />
       </div>
     </>
   );
