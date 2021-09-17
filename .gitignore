@@ -7,6 +7,7 @@
 .vscode/
 # src/Helpers/Config.js
 .env
+MovieTrailers_Trim.mp4
 
 # testing
 /coverage

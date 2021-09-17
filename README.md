@@ -8,11 +8,11 @@
 
 The website can be accessed at the following link: https://edoardogruppi.github.io/Movie_Trailers.
 
-## Some GIFs
+## Demo Video
 
-[]()
+https://user-images.githubusercontent.com/48513387/133832191-4757221b-e46d-4977-96b6-2c9789457ea4.mp4
 
-[]()
+**Note:** the audio is not recorded in the video displayed.
 
 ## Notes
 
