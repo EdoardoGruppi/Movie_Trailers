@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import MovieTrailers from "./MovieTrailers/MovieTrailers";
 import SearchPage from "./MovieTrailers/SearchPage";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
