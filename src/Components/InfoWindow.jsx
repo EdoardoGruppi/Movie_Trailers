@@ -10,7 +10,10 @@ import "./VideoPlayer.css";
 export default function InfoWindow({ info, setInfo, movieVisualized }) {
   const [type, setType] = useState("");
 
-  useEffect(() => setType(findType(info)), []);
+  useEffect(() => {
+    setType(findType(info)); 
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="modal">

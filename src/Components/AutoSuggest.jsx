@@ -18,6 +18,7 @@ export default function AutomaticSuggestions({ setMovies }) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
+    // eslint-disable-next-line
   }, []);
 
   const handleKeyDown = (e) => {
