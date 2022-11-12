@@ -10,6 +10,48 @@
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.handle{
+  position: absolute;
+  width: 100px;
+  margin-top: -12.5px;
+  height: 275px;
+  z-index: 5;
+  color: transparent;
+}
+
+.left-arrow:hover{
+  background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+.left-arrow:hover .icon-left{
+  color: white;
+  font-size: 30px;
+  margin-left: 20px;
+  margin-top: 105px;
+}
+
+.left-arrow{
+  background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+  left: 0;
+}
+
+.right-arrow:hover{
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+.right-arrow:hover .icon-right{
+  color: white;
+  font-size: 30px;
+  margin-left: 70px;
+  margin-top: 105px;
+}
+
+.right-arrow{
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+  right: 0;
 }
 
 /* This tell browsers to not show scrollbar */

@@ -28,10 +28,20 @@ export default function Row({ title, fetchUrl }) {
     });
   };
 
+  const scrollLeft = (e) => {
+    const line_id = 'line' + e.target.id.slice(5);
+    document.getElementById(line_id).scrollLeft += 700;
+  }
+
+  const scrollRight = (e) => {
+    const line_id = 'line' + e.target.id.slice(5);
+    document.getElementById(line_id).scrollLeft -= 700;
+  }
+
   return (
     <div className="row">
       <h2 className="title">{title}</h2>
-      <div className="row_posters">
+      <div className="row_posters" id={`line ${title}`}>
         {movies.map((movie) => (
           <img
             // React uses keys to optimise the rendering. If anything changes in a Row, React renders only what needed
@@ -42,6 +52,17 @@ export default function Row({ title, fetchUrl }) {
             alt={movie.name}
           />
         ))}
+        <div className="handle left-arrow" id={`cont0 ${title}`} onClick={(e) => scrollRight(e)}>
+          <div className="icon-left" id={`hand0 ${title}`} onClick={(e) => scrollRight(e)}>
+            <i className = "fa-solid fa-angle-left" id={`icon0 ${title}`} onClick={(e) => scrollRight(e)}></i>
+          </div>
+        </div>
+        <div className="handle right-arrow" id={`cont1 ${title}`} onClick={(e) => scrollLeft(e)}>
+          <div className="icon-right" id={`hand1 ${title}`} onClick={(e) => scrollLeft(e)}>
+            <i className = "fa-solid fa-angle-right" id={`icon1 ${title}`} onClick={(e) => scrollLeft(e)}></i>
+          </div>
+        </div>
+
       </div>
       {trailerUrl && (
         <VideoPlayer
