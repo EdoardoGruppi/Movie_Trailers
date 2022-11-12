@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Movie_Trailers/static/css/main.2bb6f049.chunk.css",
-    "main.js": "/Movie_Trailers/static/js/main.8a62e325.chunk.js",
-    "main.js.map": "/Movie_Trailers/static/js/main.8a62e325.chunk.js.map",
-    "runtime-main.js": "/Movie_Trailers/static/js/runtime-main.b7cd9d1b.js",
-    "runtime-main.js.map": "/Movie_Trailers/static/js/runtime-main.b7cd9d1b.js.map",
-    "static/js/2.43cec064.chunk.js": "/Movie_Trailers/static/js/2.43cec064.chunk.js",
-    "static/js/2.43cec064.chunk.js.map": "/Movie_Trailers/static/js/2.43cec064.chunk.js.map",
-    "static/js/3.c082e01d.chunk.js": "/Movie_Trailers/static/js/3.c082e01d.chunk.js",
-    "static/js/3.c082e01d.chunk.js.map": "/Movie_Trailers/static/js/3.c082e01d.chunk.js.map",
+    "main.css": "/Movie_Trailers/static/css/main.42f644de.chunk.css",
+    "main.js": "/Movie_Trailers/static/js/main.cedc52b3.chunk.js",
+    "main.js.map": "/Movie_Trailers/static/js/main.cedc52b3.chunk.js.map",
+    "runtime-main.js": "/Movie_Trailers/static/js/runtime-main.331bd610.js",
+    "runtime-main.js.map": "/Movie_Trailers/static/js/runtime-main.331bd610.js.map",
+    "static/js/2.ac36eb77.chunk.js": "/Movie_Trailers/static/js/2.ac36eb77.chunk.js",
+    "static/js/2.ac36eb77.chunk.js.map": "/Movie_Trailers/static/js/2.ac36eb77.chunk.js.map",
+    "static/js/3.933421a2.chunk.js": "/Movie_Trailers/static/js/3.933421a2.chunk.js",
+    "static/js/3.933421a2.chunk.js.map": "/Movie_Trailers/static/js/3.933421a2.chunk.js.map",
     "index.html": "/Movie_Trailers/index.html",
-    "static/css/main.2bb6f049.chunk.css.map": "/Movie_Trailers/static/css/main.2bb6f049.chunk.css.map",
-    "static/js/2.43cec064.chunk.js.LICENSE.txt": "/Movie_Trailers/static/js/2.43cec064.chunk.js.LICENSE.txt",
+    "static/css/main.42f644de.chunk.css.map": "/Movie_Trailers/static/css/main.42f644de.chunk.css.map",
+    "static/js/2.ac36eb77.chunk.js.LICENSE.txt": "/Movie_Trailers/static/js/2.ac36eb77.chunk.js.LICENSE.txt",
     "static/media/SearchNavBar.css": "/Movie_Trailers/static/media/backArrow.b27e2493.svg",
     "static/media/close.beae15f0.png": "/Movie_Trailers/static/media/close.beae15f0.png",
     "static/media/film.089ec639.svg": "/Movie_Trailers/static/media/film.089ec639.svg",
@@ -20,9 +20,9 @@
     "static/media/youtube.c8f52198.svg": "/Movie_Trailers/static/media/youtube.c8f52198.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b7cd9d1b.js",
-    "static/js/2.43cec064.chunk.js",
-    "static/css/main.2bb6f049.chunk.css",
-    "static/js/main.8a62e325.chunk.js"
+    "static/js/runtime-main.331bd610.js",
+    "static/js/2.ac36eb77.chunk.js",
+    "static/css/main.42f644de.chunk.css",
+    "static/js/main.cedc52b3.chunk.js"
   ]
 }
